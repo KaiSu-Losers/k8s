@@ -285,7 +285,7 @@ spec:
             - --udp-services-configmap=$(POD_NAMESPACE)/udp-services
             - --publish-service=$(POD_NAMESPACE)/ingress-nginx
             - --annotations-prefix=nginx.ingress.kubernetes.io
-            - --http-port=3306
+            #- --http-port=3306
           securityContext:
             capabilities:
               drop:
@@ -305,7 +305,8 @@ spec:
                   fieldPath: metadata.namespace
           ports:
             - name: http
-              containerPort: 3306
+              #containerPort: 3306
+              containerPort: 80
             - name: https
               containerPort: 443
           livenessProbe:
